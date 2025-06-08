@@ -1,0 +1,11 @@
+Text file created to test functionality till feature/catfile branch 
+
+Test contents -
+
+1. Hash a file -
+
+cargo run -- hash-object <relative path of file>
+
+2. Copy the hash and try -
+
+cargo run -- cat-file <hash>

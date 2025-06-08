@@ -12,12 +12,14 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    /// Initialize a new repository
     Init,
-    /// Compute and display the hash of a file
     HashObject {
-        /// Path of the file to hash
         file: String,
+    },
+    /// Show content of object by hash
+    CatFile {
+        /// Hash of the object to display
+        hash: String,
     },
 }
 
@@ -27,5 +29,6 @@ fn main() {
     match cli.command {
         Commands::Init => commands::init::init().unwrap(),
         Commands::HashObject { file } => commands::hash_object::hash_object(&file).unwrap(),
+        Commands::CatFile { hash } => commands::cat_file::cat_file(&hash).unwrap(),
     }
 }
